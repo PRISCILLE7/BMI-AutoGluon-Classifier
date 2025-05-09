@@ -1,79 +1,56 @@
-# Sentiment Analysis on Financial News Headlines
+# IBM Stock Sentiment & Price Movement Analysis
 
-This repository contains a data science project focused on analyzing sentiment in financial news headlines. The goal is to classify headlines as **positive**, **negative**, or **neutral**, using natural language processing (NLP) and machine learning techniques.
+This project analyzes historical IBM stock data using pandas and matplotlib. It includes sentiment interpretation based on daily movement and visualizes trends over time.
 
- Dataset: `financial_headlines.csv`  
- Notebook: `sentiment_analysis_finance.ipynb`  
- Domain: Finance + NLP + Text Classification
-
----
-
-##  Objectives
-
-- Preprocess financial news headlines for NLP tasks.
-- Apply sentiment labeling using rule-based or manual annotations.
-- Extract features using Bag-of-Words and/or TF-IDF vectorization.
-- Train and evaluate machine learning classifiers (Logistic Regression, Naive Bayes, etc.).
-- Visualize classification results and key insights.
+ Dataset: `IBM.csv`  
+ Notebook: `ibm_sentiment_analysis.ipynb`  
+ Domain: Finance + Data Analysis + Time Series
 
 ---
 
-##  Files Included
+## Objective
 
-- `financial_headlines.csv`: CSV file with financial headlines and (optionally) sentiment labels.
-- `sentiment_analysis_finance.ipynb`: Jupyter Notebook containing data exploration, preprocessing, model training, and evaluation.
-- `README.md`: Project documentation.
+To perform basic data cleaning, feature engineering, and visualization of **IBM’s stock price** and derived sentiment (positive, negative, neutral) based on **daily price variation**.
 
 ---
 
-##  Libraries & Tools
+##  What's Implemented
+
+- Load and explore a real-world IBM dataset
+- Handle missing values and standardize column names
+- Compute a new `variation` column (close - open)
+- Label sentiment:
+  - **Positive**: variation > 0
+  - **Negative**: variation < 0
+  - **Neutral**: variation = 0
+- Plot sentiment distribution over time
+
+---
+
+##  Example Outputs
+
+- Bar chart of positive/negative/neutral days
+- Line plots showing stock trends
+- Sentiment evolution across the time period
+
+---
+
+##  Libraries Used
 
 - Python 3
 - Pandas
-- NumPy
-- Scikit-learn
-- NLTK / SpaCy (for preprocessing)
-- Matplotlib / Seaborn (for visualization)
-
----
-
-##  Key Steps in the Notebook
-
-1. **Loading the dataset**
-2. **Text cleaning and preprocessing**:
-   - Lowercasing
-   - Removing punctuation/stopwords
-   - Tokenization
-3. **Exploratory Data Analysis (EDA)**:
-   - Word frequency
-   - Distribution of sentiment classes
-4. **Feature Extraction**:
-   - CountVectorizer
-   - TF-IDF
-5. **Model Training & Evaluation**:
-   - Logistic Regression
-   - Naive Bayes
-   - Accuracy, F1-score, confusion matrix
-6. **Insights & Conclusion**
-
----
-
-##  Results Summary
-
-- Best-performing model: Logistic Regression with TF-IDF features.
-- Challenges include handling ambiguous or sarcastic headlines.
-- Accuracy and macro F1-score reported in the notebook.
+- Matplotlib
+- Numpy
+- seaborn 
 
 ---
 
 ##  Author
 
 Priscille Ebwala  
-M2 SIM — Vietnam National University (IFI)  
+Master 2 — Vietnam National University (IFI)  
 Email: ebwalette@gmail.com
 
 ---
 
-##  Educational Use
-
-This project was conducted as part of coursework in Natural Language Processing, and serves as an introduction to applying machine learning for sentiment analysis in finance.
+This notebook is intended as a practical introduction to time-series sentiment labeling using financial stock data (IBM case study).
