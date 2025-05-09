@@ -1,56 +1,86 @@
-# IBM Stock Sentiment & Price Movement Analysis
+#  BMI Sentiment Analysis & Classification
 
-This project analyzes historical IBM stock data using pandas and matplotlib. It includes sentiment interpretation based on daily movement and visualizes trends over time.
-
- Dataset: `IBM.csv`  
- Notebook: `ibm_sentiment_analysis.ipynb`  
- Domain: Finance + Data Analysis + Time Series
+This project aims to predict a person's **health index category (Index)** based on biometric data such as gender, height, weight, and **BMI**, using machine learning techniques — notably **AutoGluon**.
 
 ---
 
-## Objective
+##  Project Files
 
-To perform basic data cleaning, feature engineering, and visualization of **IBM’s stock price** and derived sentiment (positive, negative, neutral) based on **daily price variation**.
-
----
-
-##  What's Implemented
-
-- Load and explore a real-world IBM dataset
-- Handle missing values and standardize column names
-- Compute a new `variation` column (close - open)
-- Label sentiment:
-  - **Positive**: variation > 0
-  - **Negative**: variation < 0
-  - **Neutral**: variation = 0
-- Plot sentiment distribution over time
+- `BMI.csv` — Dataset containing the columns: `Gender`, `Height`, `Weight`, and `Index`.
+- `bmi_sentiment_analysis.ipynb` — Main notebook including data analysis, modeling, and predictions.
 
 ---
 
-##  Example Outputs
+##  Tools & Libraries
 
-- Bar chart of positive/negative/neutral days
-- Line plots showing stock trends
-- Sentiment evolution across the time period
+- Python 3.10+
+- pandas, numpy
+- seaborn, matplotlib
+- scikit-learn
+- AutoGluon
 
 ---
 
-##  Libraries Used
+##  Project Steps
 
-- Python 3
-- Pandas
-- Matplotlib
-- Numpy
-- seaborn 
+### 1. Data Loading & Cleaning
+- Check for missing values
+- Encode the `Gender` column
+- Create a new `BMI` column
+
+### 2. Exploratory Data Analysis
+- Boxplots to visualize feature distribution
+- Correlation matrix to explore relationships
+
+### 3. Data Preparation
+- Split dataset into training and testing sets
+- Separate features (`X`) and target (`y`)
+
+### 4. Model Training with AutoGluon
+- Use `TabularPredictor` for automatic model training
+- Evaluate performance on test data
+
+### 5. Prediction
+- Predict health index categories and probabilities on new biometric entries
+
+---
+
+##  Example: Making Predictions
+
+```python
+new_df = pd.DataFrame({
+    'Gender': [1, 0],
+    'Height': [175, 160],
+    'Weight': [70, 55],
+    'BMI': [22.86, 21.48]
+})
+
+# Predictions
+predictor.predict(new_df)
+predictor.predict_proba(new_df)
+```
+
+---
+
+##  Expected Output
+
+- A predicted **Index class** for each new individual
+- The **associated probabilities** for each possible class
+
+---
+
+##  Notes
+
+- AutoGluon automates model selection and hyperparameter tuning.
+- This project is well-suited for educational purposes or a demo prototype in **pattern recognition**.
 
 ---
 
 ##  Author
 
 Priscille Ebwala  
-Master 2 — Vietnam National University (IFI)  
-Email: ebwalette@gmail.com
+Master 2 – Systèmes Intelligents & Multimédia  
+Université Nationale du Vietnam – IFI  
+ ebwalette@gmail.com
 
----
-
-This notebook is intended as a practical introduction to time-series sentiment labeling using financial stock data (IBM case study).
+ This project was conducted as part of a practical session in the *Pattern Recognition* course.
